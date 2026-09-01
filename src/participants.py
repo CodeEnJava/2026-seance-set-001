@@ -234,6 +234,7 @@ while True:
                     input("Retour sous menu")
             else:
                 input("Retour au menu principal.")
+                break
 
     elif choix == 2:
         # Ajouter un participant
