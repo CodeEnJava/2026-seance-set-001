@@ -135,26 +135,26 @@ while True:
                 for participant in python:
                     print(f" - {participant}")
 
-                input("Retour sous menu")
+                input("Retour sous menu ")
 
             elif reqchoix == 2:
                 print("Les participants du groupe Java")
                 for participant in java:
                     print(f" - {participant}")
-                input("Retour sous menu")
+                input("Retour sous menu ")
 
             elif reqchoix == 3:
                 print("Les participants du groupe Web")
                 for participant in web:
                     print(f" - {participant}")
-                input("Retour sous menu")
+                input("Retour sous menu ")
 
             elif reqchoix == 4:
                 print("Les participants de tous les groupes")
                 E_union = python.union(java).union(web)
                 for participant in E_union:
                     print(f" - {participant}")
-                input("Retour sous menu")
+                input("Retour sous menu ")
 
             elif reqchoix == 5:
                 # Afficher les participants en fonction d'une requête explicite
@@ -231,7 +231,7 @@ while True:
                     else:
                         print(f"{prompt}: cette requête n'est pas valide")
 
-                    input("Retour sous menu")
+                    input("Retour sous menu ")
             else:
                 input("Retour au menu principal.")
                 break
