@@ -1,3 +1,5 @@
+import subprocess
+import platform
 
 
 # Initialisation des 3 ensembles
@@ -59,6 +61,14 @@ Votre choix :
 '''
 
 while True:
+    '''
+    Effacer écran
+    '''
+    if platform.system() == "Windows":
+        subprocess.run("cl",shell= True)
+    else:
+        subprocess.run("clear", shell = True)
+
     print("\n========================================")
     print("       GESTION DES PARTICIPANTS")
     print("========================================\n")
@@ -88,7 +98,143 @@ while True:
         # TODO : dans la prochaine vidéo réalisation du code
         print("Afficher les participants")
 
-        input("Retour au menu principal")
+        while True:
+            '''
+               Effacer écran
+               '''
+            if platform.system() == "Windows":
+                subprocess.run("cl", shell=True)
+            else:
+                subprocess.run("clear", shell=True)
+
+            print("=============================================================")
+            print("Requête d'affichage des participants")
+            print("=============================================================\n")
+
+
+            print("1 - Afficher les participants du groupe Python")
+            print("2 - Afficher les participants du groupe Java")
+            print("3 - Afficher les participants du groupe Web")
+            print("4 - Afficher les participants de tous les groupes")
+            print("5 - Afficher les participants en fonction d'une requête")
+            print("0 - Retour au menu principal")
+            print("\n")
+            # Lecture sécurisée du choix
+            while True:
+                try:
+                    reqchoix = int(input("Votre choix :"))
+                    if reqchoix in range(0, 6):
+                        break
+                    print("Veuillez entrer une valeur comprise entre 0 et 5")
+                except ValueError:
+                    print("Veuillez entrer un nombre valide")
+            # fin de la lecture sécurisée
+
+            if reqchoix == 1:
+                print("Les participants du groupe Python")
+                for participant in python:
+                    print(f" - {participant}")
+
+                input("Retour sous menu")
+
+            elif reqchoix == 2:
+                print("Les participants du groupe Java")
+                for participant in java:
+                    print(f" - {participant}")
+                input("Retour sous menu")
+
+            elif reqchoix == 3:
+                print("Les participants du groupe Web")
+                for participant in web:
+                    print(f" - {participant}")
+                input("Retour sous menu")
+
+            elif reqchoix == 4:
+                print("Les participants de tous les groupes")
+                E_union = python.union(java).union(web)
+                for participant in E_union:
+                    print(f" - {participant}")
+                input("Retour sous menu")
+
+            elif reqchoix == 5:
+                # Afficher les participants en fonction d'une requête explicite
+                print("Vous pouvez utiliser les opérateurs suivants:")
+                print(" 1 UNION                : Réunit les éléments des ensembles")
+                print(" 2 INTERSECTION         : Éléments communs")
+                print(" 3 DIFFERENCE           : Éléments présents dans le premier ensemble uniquement")
+                print(" 4 SYMMETRIC_DIFFERENCE : Éléments présents dans un seul des deux ensembles")
+
+                print()
+                print("Exemple de requête :\n>> python union java intersection web")
+                print()
+                prompt = input(">> ")
+                # Analyser le contenu du prompt
+                prompt = prompt.upper()
+                # découper le prompt en n éléments
+                elements = prompt.split()
+                # pour être valide, on doit avoir au minimum 3 éléments
+                if len(elements) <3:
+                    print("Requête invalide.")
+                else:
+                    # il faut vérifier que le premier élément est un ensemble valide
+                    valide = False
+                    if elements[0]=="PYTHON":
+                        result = python.copy()
+                    elif elements[0]== "JAVA":
+                        result = java.copy()
+                    elif elements[0]=="WEB":
+                        result = web.copy()
+                    else:
+                        result = set()
+                        print(f"{elements[0]} est un ensemble inconnu.")
+                        valide = False
+                    if result:
+                        valide = True
+
+                    # ENSEMBLE OPERATEUR ENSEMBLE OPERATEUR ENSEMBLE,,,,,,,
+                    for i in range(1,len(elements),2):
+                        operateur =  elements[i]
+                        ensemble = elements[i+1]
+                        # identifier l'ensemble
+                        if ensemble == "PYTHON":
+                            ensemble = python
+                        elif ensemble == "JAVA":
+                            ensemble = java
+                        elif ensemble == "WEB":
+                            ensemble = web
+                        else:
+                            valide = False
+                            print(f"{ensemble} est un ensemble inconnu.")
+                            break
+
+                        # Appliquer l'opérateur
+                        if operateur == "UNION":
+                            result = result.union(ensemble)
+                        elif operateur == "INTERSECTION":
+                            result = result.intersection(ensemble)
+                        elif operateur == "DIFFERENCE":
+                            result = result.difference(ensemble)
+                        elif operateur == "SYMMETRIC_DIFFERENCE":
+                            result = result.symmetric_difference(ensemble)
+                        else:
+                            valide = False
+                            print(f"{operateur} est un opérateur inconnu.")
+                            break
+                    # Afficher le résultat
+                    if valide:
+                        print("\nRésultat de la requête : ")
+                        if result:
+                            for participant in result:
+                                print(f" - {participant}")
+                        else:
+                            print("Aucun participant ne correspond à la requête.")
+                    else:
+                        print(f"{prompt}: cette requête n'est pas valide")
+
+                    input("Retour sous menu")
+            else:
+                input("Retour au menu principal.")
+
     elif choix == 2:
         # Ajouter un participant
         print("Ajouter un participant")
