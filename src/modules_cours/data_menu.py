@@ -18,7 +18,7 @@ main_items = [
 
 main_menu =[main_title.upper(),main_items]
 
-# le sous menu :Afficher les participants
+# le sous menu : Afficher les participants
 
 sub_title = "Requête d'affichage des participants"
 sub_items = [

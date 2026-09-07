@@ -3,46 +3,46 @@ from data import python, java, web
 from menu import show_menu
 from data_menu import main_menu,sub_menu
 from reader import read_integer_min_max
+
 while True:
     # menu principal
     choix = show_menu(main_menu)
     # construction du menu en fonction du choix de l'utilisateur
     if choix == 1:
         # Afficher les participants
-        # TODO : dans la prochaine vidéo réalisation du code
         print("Afficher les participants")
 
         while True:
             # le sous menu
-            reqchoix = show_menu(sub_menu)
+            request_choose = show_menu(sub_menu)
 
-            if reqchoix == 1:
+            if request_choose == 1:
                 print("Les participants du groupe Python")
                 for participant in python:
                     print(f" - {participant}")
 
                 input("Retour sous menu ")
 
-            elif reqchoix == 2:
+            elif request_choose == 2:
                 print("Les participants du groupe Java")
                 for participant in java:
                     print(f" - {participant}")
                 input("Retour sous menu ")
 
-            elif reqchoix == 3:
+            elif request_choose == 3:
                 print("Les participants du groupe Web")
                 for participant in web:
                     print(f" - {participant}")
                 input("Retour sous menu ")
 
-            elif reqchoix == 4:
+            elif request_choose == 4:
                 print("Les participants de tous les groupes")
                 E_union = python.union(java).union(web)
                 for participant in E_union:
                     print(f" - {participant}")
                 input("Retour sous menu ")
 
-            elif reqchoix == 5:
+            elif request_choose == 5:
                 # Afficher les participants en fonction d'une requête explicite
                 print("Vous pouvez utiliser les opérateurs suivants:")
                 print(" 1 UNION                : Réunit les éléments des ensembles")
