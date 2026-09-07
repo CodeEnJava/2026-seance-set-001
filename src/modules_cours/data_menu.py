@@ -16,7 +16,10 @@ main_items = [
 # un titre
 # la liste des items
 
-main_menu =[main_title.upper(),main_items]
+# main_menu =[main_title.upper(),main_items]
+# modification en utilisant un dictionnaire
+main_menu = {"title":main_title.upper(),
+            "items":main_items}
 
 # le sous menu : Afficher les participants
 
@@ -30,5 +33,7 @@ sub_items = [
                 "Retour au menu principal"
             ]
 
-sub_menu= [sub_title.upper(),sub_items]
-
+# sub_menu= [sub_title.upper(),sub_items]
+# modification en utilisant un dictionnaire
+sub_menu = {"title":sub_title.upper(),
+            "items":sub_items}

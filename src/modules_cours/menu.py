@@ -27,12 +27,14 @@ def create_items(list_items):
         choix += 1
 
 def show_menu(list_menu):
+    # validation du paramètre
+
     clear_screen()
-    create_title(list_menu[0])
+    create_title(list_menu["title"])
     print("\n\n")
-    create_items(list_menu[1])
+    create_items(list_menu["items"])
     print("\n")
-    return read_integer_min_max("Votre choix : ",0,maxi=len(list_menu[1]))
+    return read_integer_min_max("Votre choix : ",0,maxi=len(list_menu["items"]))
 
 
 
