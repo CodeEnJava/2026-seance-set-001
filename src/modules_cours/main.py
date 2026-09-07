@@ -2,7 +2,10 @@
 from data import python, java, web
 from menu import show_menu
 from data_menu import main_menu,sub_menu
-from reader import read_integer_min_max
+from reader import read_integer_min_max,read_str
+from services import select_group, groupe_set
+
+groupes = groupe_set()
 
 while True:
     # menu principal
@@ -125,29 +128,10 @@ while True:
     elif choix == 2:
         # Ajouter un participant
         print("Ajouter un participant")
-        # saisir le nom du participant
-        while True:
-            nom = input("Entrer le nom du participant à ajouter : ")
-            if len(nom) != 0:
-                nom = nom.capitalize()
-                break
-            print("Entrer une chaine non vide")
-        # fin de la saisie du nom
-        print("Dans quel groupe voulez-vous l'ajouter ? ")
-        print(" 1 - Python")
-        print(" 2 - Java")
-        print(" 3 - web")
 
-        # lecture sécurisée du choix
-        while True:
-            try:
-                groupe = int(input("Votre  choix : "))
-                if groupe in range(1, 4):
-                    break
-                print("Veuillez entrer un nombre entre 1 et 3")
-            except ValueError:
-                print("Veuillez entrer un nombre valide")
-        # fin de la lecture
+        nom = read_str("Entrer le nom du nouveau participant")
+
+        groupe = select_group("Dans quel groupe voulez-vous l'ajouter ? ",groupes)
 
         if groupe ==1:
             python.add(nom)
@@ -164,29 +148,10 @@ while True:
         # Supprimer un participant
 
         print("Supprimer un participant")
-        # saisir le nom du participant
-        while True:
-            nom = input("Entrer le nom du participant à rechercher : ")
-            if len(nom) != 0:
-                nom = nom.capitalize()
-                break
-            print("Entrer une chaine non vide")
-        # fin de la saisie du nom
-        print("Dans quel groupe voulez-vous le supprimer ? ")
-        print(" 1 - Python")
-        print(" 2 - Java")
-        print(" 3 - web")
 
-        # lecture sécurisée du choix
-        while True:
-            try:
-                groupe = int(input("Votre  choix : "))
-                if groupe in range(1,4):
-                    break
-                print("Veuillez entrer un nombre entre 1 et 3")
-            except ValueError:
-                print("Veuillez entrer un nombre valide")
-        # fin de la lecture
+        nom = read_str("Entrer le nom du participant à supprimer")
+
+        groupe = select_group("Dans quel groupe voulez-vous le supprimer ? ", groupes)
 
         if groupe ==1:
             if nom in python:
@@ -213,14 +178,9 @@ while True:
         # Rechercher un participant
 
         print("Rechercher un participant")
-        # saisir le nom du participant
-        while True:
-            nom = input("Entrer le nom du participant à rechercher : ")
-            if len(nom)!=0:
-                nom = nom.capitalize()
-                break
-            print("Entrer une chaine non vide")
-        # fin de la saisie du nom
+
+        nom = read_str("Entrer le nom du participant à rechercher : ")
+
         # Rechercher s'il est présent dans l'ensemble python
         if nom in python:
             print(f"{nom} est dans le groupe python")

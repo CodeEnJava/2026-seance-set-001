@@ -21,3 +21,5 @@ web = {
     "Franck",
     "Gérard"
 }
+
+groupes = ["PYTHON","JAVA","WEB"]
