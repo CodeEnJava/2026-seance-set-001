@@ -60,7 +60,7 @@ def read_str(str_message):
         raise TypeError("Le paramètre doit-être une chaine de caractères.")
 
     if len(str_message) == 0:
-        message ="Entrer une valeur entière"
+        message ="Entrer une chaine non vide"
     else:
         message = str_message
 
