@@ -1,9 +1,9 @@
 
-from data import groupes
+from data import group_names
 from reader import read_integer_min_max
 end_with = ": "
 
-def groupe_set():
+def create_group_dict():
     '''
        Crée un dictionnaire associant un numéro de groupe à son nom.
 
@@ -20,9 +20,9 @@ def groupe_set():
        :rtype: dict
        '''
     dico_groupes ={}
-    for pointer in range(0,len(groupes)):
+    for pointer in range(0,len(group_names)):
         key = str(pointer+1)
-        dico_groupes[key] = groupes[pointer]
+        dico_groupes[key] = group_names[pointer]
     return dico_groupes
 
 def is_items_str(dico_groups):
@@ -57,19 +57,10 @@ def is_items_str(dico_groups):
 
 def display_groupes(dico_groups):
     '''
-    Affiche les différents groupes contenus dans un dictionnaire.
 
-    La fonction vérifie que le paramètre fourni est bien un dictionnaire
-    et que ses éléments sont des chaînes de caractères. Elle parcourt
-    ensuite le dictionnaire afin d'afficher chaque groupe sous la forme :
-
-    clé - nom du groupe
-
-    :param dico_groups: dictionnaire contenant les identifiants et les
-                        noms des différents groupes
-    :return: None
+    :param dico_groups:
+    :return:
     '''
-
     if not isinstance(dico_groups,dict):
         raise TypeError("le paramètre doit-être un dictionnaire valide.")
     # il faut s'assurer que chaque item du dictionnaire est un str
@@ -82,24 +73,12 @@ def display_groupes(dico_groups):
 
 def select_group(str_message,dico_group):
     '''
-        Permet d'afficher une liste de groupes et de demander à l'utilisateur
-        d'en sélectionner un.
 
-        La fonction valide les paramètres reçus, prépare et affiche un message
-        indiquant l'action à effectuer, affiche ensuite les groupes disponibles
-        à l'aide de la fonction display_groupes(), puis demande à l'utilisateur
-        de saisir le numéro correspondant au groupe choisi.
-
-        Le choix de l'utilisateur est contrôlé afin qu'il corresponde à une
-        valeur entière comprise dans les bornes définies par le nombre de groupes.
-
-        :param str_message: message indiquant à l'utilisateur l'action ou
-                            l'instruction à réaliser
-        :param dico_group: dictionnaire contenant les identifiants et les
-                           noms des groupes disponibles
-        :return: un entier correspondant au numéro du groupe sélectionné
-                 par l'utilisateur
-        '''
+    :param str_message: message pour indiquer l'action
+    :param dico_group: dictionnaire contenant le nom des groupes
+    :return: un entier indiquant le groupe choisi
+    :rtype : int
+    '''
     # validation des paramètres
     if not isinstance(str_message,str):
         raise TypeError("Le premier paramètre doit-être un str.")

@@ -1,11 +1,13 @@
 
-from data import python, java, web
+from data import python, java, web,groups,group_names
+from data_menu import main_menu, sub_menu
 from menu import show_menu
-from data_menu import main_menu,sub_menu
-from reader import read_integer_min_max,read_str
-from services import select_group, groupe_set
+from reader import read_str
+from services import select_group, create_group_dict
+from participants import add_participant
 
-groupes = groupe_set()
+
+group_dict = create_group_dict()
 
 while True:
     # menu principal
@@ -127,23 +129,8 @@ while True:
 
     elif choix == 2:
         # Ajouter un participant
-        print("Ajouter un participant")
+        add_participant()
 
-        nom = read_str("Entrer le nom du nouveau participant")
-
-        groupe = select_group("Dans quel groupe voulez-vous l'ajouter ? ",groupes)
-
-        if groupe ==1:
-            python.add(nom)
-            print(f"{nom} a été ajouté au groupe Python")
-        elif groupe ==2:
-            java.add(nom)
-            print(f"{nom} a été ajouté au groupe Java")
-        else:
-            web.add(nom)
-            print(f"{nom} a été ajouté au groupe Web")
-
-        input("Retour au menu principal")
     elif choix == 3:
         # Supprimer un participant
 
@@ -151,7 +138,7 @@ while True:
 
         nom = read_str("Entrer le nom du participant à supprimer")
 
-        groupe = select_group("Dans quel groupe voulez-vous le supprimer ? ", groupes)
+        groupe = select_group("Dans quel groupe voulez-vous le supprimer ? ", group_dict)
 
         if groupe ==1:
             if nom in python:

@@ -22,4 +22,10 @@ web = {
     "Gérard"
 }
 
-groupes = ["PYTHON","JAVA","WEB"]
+group_names = ["PYTHON","JAVA","WEB"]
+
+groups ={"python":python,
+         "java":java,
+         "web":web}
+
+
