@@ -17,9 +17,13 @@ main_items = [
 # la liste des items
 
 # main_menu =[main_title.upper(),main_items]
-# modification en utilisant un dictionnaire
+# mise en place du dictionnaire
+# la structure est composé de deux clés: (title, items)
+# pour la clé title la valeur est un str
+# pour la clé items la valeur est une liste de str
+
 main_menu = {"title":main_title.upper(),
-            "items":main_items}
+             "items":main_items}
 
 # le sous menu : Afficher les participants
 
@@ -34,6 +38,5 @@ sub_items = [
             ]
 
 # sub_menu= [sub_title.upper(),sub_items]
-# modification en utilisant un dictionnaire
 sub_menu = {"title":sub_title.upper(),
-            "items":sub_items}
+             "items":sub_items}
