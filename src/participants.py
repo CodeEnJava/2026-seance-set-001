@@ -65,7 +65,7 @@ while True:
     Effacer écran
     '''
     if platform.system() == "Windows":
-        subprocess.run("cl",shell= True)
+        subprocess.run("cls",shell= True)
     else:
         subprocess.run("clear", shell = True)
 
@@ -103,7 +103,7 @@ while True:
                Effacer écran
                '''
             if platform.system() == "Windows":
-                subprocess.run("cl", shell=True)
+                subprocess.run("cls", shell=True)
             else:
                 subprocess.run("clear", shell=True)
 

@@ -4,6 +4,21 @@ from reader import read_integer_min_max
 end_with = ": "
 
 def groupe_set():
+    '''
+       Crée un dictionnaire associant un numéro de groupe à son nom.
+
+       La fonction parcourt la collection globale `groupes` et construit
+       un dictionnaire dont :
+
+       - la clé correspond au numéro du groupe sous forme de chaîne de caractères ;
+       - la valeur correspond au nom du groupe.
+
+       La numérotation des groupes commence à 1 afin de faciliter
+       leur affichage et leur sélection par l'utilisateur.
+
+       :return: un dictionnaire contenant les numéros et les noms des groupes
+       :rtype: dict
+       '''
     dico_groupes ={}
     for pointer in range(0,len(groupes)):
         key = str(pointer+1)
@@ -11,6 +26,26 @@ def groupe_set():
     return dico_groupes
 
 def is_items_str(dico_groups):
+    '''
+       Vérifie que toutes les valeurs d'un dictionnaire sont des chaînes
+       de caractères.
+
+       La fonction commence par vérifier que le paramètre fourni est bien
+       un dictionnaire. Si ce n'est pas le cas, une exception TypeError
+       est levée.
+
+       Ensuite, chaque valeur du dictionnaire est contrôlée afin de vérifier
+       qu'elle est de type str.
+
+       :param dico_groups: dictionnaire contenant les éléments à vérifier
+       :type dico_groups: dict
+
+       :return: True si toutes les valeurs sont des chaînes de caractères,
+                False si au moins une valeur n'est pas une chaîne
+       :rtype: bool
+
+       :raises TypeError: si le paramètre fourni n'est pas un dictionnaire
+       '''
     if not isinstance(dico_groups,dict):
         raise TypeError("le paramètre doit-être un dictionnaire valide.")
     for key in dico_groups:
@@ -22,10 +57,19 @@ def is_items_str(dico_groups):
 
 def display_groupes(dico_groups):
     '''
-    Cette fonction permet d'afficher en console la liste des groupes
-    :param dico_groups: le dictionnaire contenant les différents groupes
+    Affiche les différents groupes contenus dans un dictionnaire.
+
+    La fonction vérifie que le paramètre fourni est bien un dictionnaire
+    et que ses éléments sont des chaînes de caractères. Elle parcourt
+    ensuite le dictionnaire afin d'afficher chaque groupe sous la forme :
+
+    clé - nom du groupe
+
+    :param dico_groups: dictionnaire contenant les identifiants et les
+                        noms des différents groupes
     :return: None
     '''
+
     if not isinstance(dico_groups,dict):
         raise TypeError("le paramètre doit-être un dictionnaire valide.")
     # il faut s'assurer que chaque item du dictionnaire est un str
@@ -38,11 +82,24 @@ def display_groupes(dico_groups):
 
 def select_group(str_message,dico_group):
     '''
-    Cette fonction permet de choisir un groupe
-    :param str_message: message pour indiquer l'action
-    :param dico_group: dictionnaire contenant le nom des groupes
-    :return: un entier indiquant le groupe choisi
-    '''
+        Permet d'afficher une liste de groupes et de demander à l'utilisateur
+        d'en sélectionner un.
+
+        La fonction valide les paramètres reçus, prépare et affiche un message
+        indiquant l'action à effectuer, affiche ensuite les groupes disponibles
+        à l'aide de la fonction display_groupes(), puis demande à l'utilisateur
+        de saisir le numéro correspondant au groupe choisi.
+
+        Le choix de l'utilisateur est contrôlé afin qu'il corresponde à une
+        valeur entière comprise dans les bornes définies par le nombre de groupes.
+
+        :param str_message: message indiquant à l'utilisateur l'action ou
+                            l'instruction à réaliser
+        :param dico_group: dictionnaire contenant les identifiants et les
+                           noms des groupes disponibles
+        :return: un entier correspondant au numéro du groupe sélectionné
+                 par l'utilisateur
+        '''
     # validation des paramètres
     if not isinstance(str_message,str):
         raise TypeError("Le premier paramètre doit-être un str.")
