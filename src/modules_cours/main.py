@@ -4,7 +4,7 @@ from data_menu import main_menu, sub_menu
 from menu import show_menu
 from reader import read_str
 from services import select_group, create_group_dict
-from participants import add_participant
+from participants import add_participant,remove_participant
 
 
 group_dict = create_group_dict()
@@ -133,34 +133,8 @@ while True:
 
     elif choix == 3:
         # Supprimer un participant
+        remove_participant()
 
-        print("Supprimer un participant")
-
-        nom = read_str("Entrer le nom du participant à supprimer")
-
-        groupe = select_group("Dans quel groupe voulez-vous le supprimer ? ", group_dict)
-
-        if groupe ==1:
-            if nom in python:
-                python.remove(nom)
-                print(f"{nom} a été supprimée du groupe Python")
-            else:
-                print(f"{nom} n'est pas dans le groupe Python")
-
-        elif groupe ==2:
-            if nom in java:
-                java.remove(nom)
-                print(f"{nom} a été supprimée du groupe Java")
-            else:
-                print(f"{nom} n'est pas dans le groupe Java")
-        else:
-            if nom in web:
-                web.remove(nom)
-                print(f"{nom} a été supprimée du groupe web")
-            else:
-                print(f"{nom} n'est pas dans le groupe web")
-
-        input("Retour au menu principal")
     elif choix == 4:
         # Rechercher un participant
 
