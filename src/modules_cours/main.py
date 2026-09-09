@@ -4,7 +4,7 @@ from data_menu import main_menu, sub_menu
 from menu import show_menu
 from reader import read_str
 from services import select_group, create_group_dict
-from participants import add_participant,remove_participant
+from participants import add_participant,remove_participant,search_participant
 
 
 group_dict = create_group_dict()
@@ -137,28 +137,8 @@ while True:
 
     elif choix == 4:
         # Rechercher un participant
+        search_participant()
 
-        print("Rechercher un participant")
-
-        nom = read_str("Entrer le nom du participant à rechercher : ")
-
-        # Rechercher s'il est présent dans l'ensemble python
-        if nom in python:
-            print(f"{nom} est dans le groupe python")
-
-        # Rechercher s'il est présent dans l'ensemble java
-        if nom in java:
-            print(f"{nom} est dans le groupe java")
-
-
-        # Rechercher s'il est présent dans l'ensemble web
-        if nom in web:
-            print(f"{nom} est dans le groupe web")
-
-        # présent dans aucun groupe
-        if nom not in python and nom not in java and nom not in web:
-            print(f"{nom} n'est dans aucun groupe")
-        input("Retour au menu principal")
     elif choix == 5:
         # Participants communs a l'ensemble des activités
         print("Participants communs")

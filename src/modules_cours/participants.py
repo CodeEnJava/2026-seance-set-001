@@ -164,3 +164,59 @@ def remove_participant():
 
     input("Retour au menu principal")
 
+
+def search_participant_aux(name):
+    """
+    Recherche un participant dans l'ensemble des groupes et affiche sa présence
+
+    Parcourt l'ensemble des groupes qui sont enregistrés dans le module data.py,
+    pour identifier ceux auxquels appartient le participant spécifié dans le paramètre,
+    puis afficher le résultat dans la console (absence, un groupe unique, groupes multiples)/
+
+    :param name: Le nom du participant à rechercher
+    :type name: str
+    :return: Aucune valeur, les résultats sont directement affichés en console
+    :rtype: None
+    """
+
+    # il faut rechercher un participant et indiquer dans quel groupe il appartient
+    # Il peut aussi appartenir à plusieurs groupe
+
+    prefixe = ", "
+    str_group = ""
+    str_group_filter = ""
+
+    for group in group_names:
+        # group représente la cle du dictionnaire groups
+        # groups[group] --> retourne un ensemble, il suffira de vérifier si name fait parti de l'ensemble
+        if name in groups[group.lower()]:
+            str_group += prefixe+group.capitalize()
+            str_group_filter = str_group.removeprefix(prefixe)
+
+    if str_group_filter.count(prefixe) > 0:
+        print(f"{name} est présent dans les groupes : {str_group_filter}")
+    elif str_group_filter.count(prefixe) == 0 and len(str_group_filter) > 0:
+        print(f"{name} est dans le groupe {str_group_filter}")
+    else:
+        print(f"{name} n'est dans aucun groupe")
+
+def search_participant():
+    """
+    Interagit avec l'utilisateur pour lancer la recherche d'un participant.
+    1- Demande la saisie du nom du participant
+    2- Exécute la recherche en utilisant la fonction search_participant_aux()
+    3- Afffiche le resultta de la recherche
+    4- Attend la validation de l'utilisateur pour retourner au programme principal
+    :return: Aucune valeur
+    :rtype: None
+    """
+    print("Rechercher un participant")
+
+    name = read_str("Entrer le nom du participant à rechercher : ")
+
+    # Rechercher s'il est présent dans l'ensemble python
+    search_participant_aux(name)
+
+    input("Retour au menu principal")
+
+
