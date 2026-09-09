@@ -15,7 +15,7 @@ def display_group_sizes():
        :rtype: None
     """
     for group_name, participants in groups.items():
-        print(f"{group_name.capitalize():<10} : {len(participants)} particiapants")
+        print(f"{group_name.capitalize():<10} : {len(participants)} participants")
 
 def intersection_sets_aux(pointer_group_a, pointer_group_b):
     """
