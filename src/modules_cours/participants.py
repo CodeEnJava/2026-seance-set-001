@@ -219,4 +219,63 @@ def search_participant():
 
     input("Retour au menu principal")
 
+'''
+print("Participants communs")
+        # mise en place d'un ensemble E4, qui contient l'intersection des ensembles
+        # (python ET web) ET java
+        E4 = (python.intersection(web)).intersection(java)
+        print("La liste des participants")
+        for participant in E4:
+            print(f"- {participant}")
+        input("Retour au menu principal")
+'''
+
+def common_participant_aux():
+    """
+    Rechercher les participants communs à l'ensemble des groupes.
+
+    La fonction utilise l'opération d'intersection des ensembles ('set') pour identifier
+    les participants présents dans tous les groupes enregistrés dans 'group_names' défini dans
+    le module data.py
+
+    Le traitement commence par récupérer l'ensemble des participants du premier groupe,
+    puis effectue successivement un intersection avec l'ensemble des groupes suivants.
+
+    Si aucun participant n'est commun la fonction retourne un ensemble vide.
+
+    :return: L'ensemble des participants commun à tous les groupes
+    :rtype: set
+    """
+    # Initialisation de premier ensemble
+    # Ep est l'ensemble python d'après le module data.py
+    Ep = groups[group_names[0].lower()]
+    for pointer in range(1,len(group_names)):
+        E1 = groups[group_names[pointer].lower()]
+        Ep = Ep.intersection(E1)
+
+    return Ep
+
+def common_participant():
+    """
+    Affiche les participants communs à l'ensemble des groupes
+
+    1- elle appelle la fonction common_participant_aux(), afin de récupérer un ensemble des
+       participants présents à tous les groupes
+    2- Si l'ensemble n'est pas vide, affiche en console son contenu, sinon affiche
+       un message pour indiquer qu'il n'y a pas de participant commun
+    3- Attend la validation de l'utilisateur pour retourner au programme principal
+
+    :return:Aucune valeur. Ke résultat est directement affiché dans la console.
+    :rtype: None
+    """
+    Ep = common_participant_aux()
+    if Ep:
+        for name in Ep:
+            print(f"- {name}")
+    else:
+        print("Il n'y a pas de participant commun à tous les groupes")
+
+    input("Retour au menu principal")
+
+
 

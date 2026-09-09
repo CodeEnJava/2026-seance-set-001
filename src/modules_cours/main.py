@@ -4,7 +4,10 @@ from data_menu import main_menu, sub_menu
 from menu import show_menu
 from reader import read_str
 from services import select_group, create_group_dict
-from participants import add_participant,remove_participant,search_participant
+from participants import (add_participant,
+                          remove_participant,
+                          search_participant,
+                          common_participant)
 
 
 group_dict = create_group_dict()
@@ -141,14 +144,7 @@ while True:
 
     elif choix == 5:
         # Participants communs a l'ensemble des activités
-        print("Participants communs")
-        # mise en place d'un ensemble E4, qui contient l'intersection des ensembles
-        # (python ET web) ET java
-        E4 = (python.intersection(web)).intersection(java)
-        print("La liste des participants")
-        for participant in E4:
-            print(f"- {participant}")
-        input("Retour au menu principal")
+        common_participant()
 
     elif choix == 6:
         # Statistiques
