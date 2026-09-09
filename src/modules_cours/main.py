@@ -1,14 +1,13 @@
 
-from data import python, java, web,groups,group_names
+from data import python, java, web
 from data_menu import main_menu, sub_menu
 from menu import show_menu
-from reader import read_str
-from services import select_group, create_group_dict
 from participants import (add_participant,
                           remove_participant,
                           search_participant,
                           common_participant)
-
+from services import create_group_dict
+from statistics import statistics
 
 group_dict = create_group_dict()
 
@@ -148,64 +147,8 @@ while True:
 
     elif choix == 6:
         # Statistiques
+        statistics()
 
-        print("========================================")
-        print("GESTION DES PARTICIPANTS")
-        print("========================================\n")
-
-        '''
-        Python : 5 participants
-        Java   : 4 participants
-        Web    : 5 participants
-        '''
-        print(f"Python : {len(python)} participants")
-        print(f"Java   : {len(java)} participants")
-        print(f"Web    : {len(web)} participants")
-
-        print()
-
-        print("----------------------------------------")
-        print("Participants Python et Java")
-        print("----------------------------------------")
-        # mise en place d'un ensemble E1, qui contient l'intersection des ensembles
-        # python ET java
-        E1 = python.intersection(java)
-        print(f"Nombre de participant(s) pour python ET java : {len(E1)} ")
-        for participant in E1:
-            print(f"- {participant}")
-        print()
-        print("----------------------------------------")
-        print("Participants Python et web")
-        print("----------------------------------------")
-        # mise en place d'un ensemble E2, qui contient l'intersection des ensembles
-        # python ET web
-        E2 = python.intersection(web)
-        print(f"Nombre de participant(s) pour python ET web : {len(E2)} ")
-        for participant in E2:
-            print(f"- {participant}")
-        print()
-        print("----------------------------------------")
-        print("Participants java et web")
-        print("----------------------------------------")
-        # mise en place d'un ensemble E3, qui contient l'intersection des ensembles
-        # java ET web
-        E3 = java.intersection(web)
-        print(f"Nombre de participant(s) pour java ET web : {len(E3)} ")
-        for participant in E3:
-            print(f"- {participant}")
-
-        print()
-        print("----------------------------------------")
-        print("Participants java et web et python")
-        print("----------------------------------------")
-        # mise en place d'un ensemble E4, qui contient l'intersection des ensembles
-        # (python ET web) ET java
-        E4 = (python.intersection(web)).intersection(java)
-        print(f"Nombre de participant(s) pour  python ET web ET java: {len(E4)} ")
-        for participant in E4:
-            print(f"- {participant}")
-
-        input("Retour au menu principal")
     else:
         print("Vous avez quitté l'application\nA bientôt...")
         break
