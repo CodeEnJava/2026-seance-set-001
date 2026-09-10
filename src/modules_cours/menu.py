@@ -31,7 +31,7 @@ def create_items(list_items):
     le dernier élément de la liste aura pour indice 0, et va servir
     pour quitter l'application ou la sous application.
 
-    :param list_items: la liste des élements à afficher
+    :param list_items: La liste des élements à afficher
     :type list_items: list
     :return: None
     """
@@ -48,17 +48,17 @@ def show_menu(dico_menu):
     Affiche un menu et demande à l'utilisateur de sélectionner un choix
 
     La fonction vérifie d'abord que le dictionnaire fourni correspond
-    à la structure attendu d'un menu
+    à la structure attendue d'un menu
 
     Si le menu est valide, elle :
         * Efface l'écran
         * Affiche le titre du menu
         * Affiche les différents items du menu
         * demande à l'utilisateur de faire un choix
-        * elle retourne le choix saisi
+        * elle retourne le choix saisi.
 
 
-    :param dico_menu: un dictionnaire contenant le titre et les differents items du menu
+    :param dico_menu: Un dictionnaire contenant le titre et les differents items du menu
     :type dico_menu : dict
     :return: choix sélectionné par l'utilisateur
     :rtype : int
@@ -75,7 +75,7 @@ def show_menu(dico_menu):
                        )
 
 
-    # il faut que pour la valeur de la clé items soit une liste
+    # il faut que pour la valeur de la clé 'items' soit une liste
 
     clear_screen()
     create_title(dico_menu["title"])
@@ -90,8 +90,8 @@ def is_valide_menu(dico_menu):
     """
     Vérifie la validité de la structure d'un menu.
     Un menu valide est représenté par un dictionnaire contenant exactement les
-    informations nécessaire à son affichage:
-        - la cle 'title'  associé à une chaine de caractères
+    informations nécessaires à son affichage:
+        - la cle 'title' associé à une chaine de caractères
         - la clé 'items' associé à une liste de caractères
     :param dico_menu: dictionnaire représentant le menu à vérifier
     :type dico_menu : dict
@@ -115,7 +115,7 @@ def is_valide_menu(dico_menu):
     if not isinstance(dico_menu["items"], list):
         return False
 
-    # il faut que chaque éléments de la liste dico_menu["items"] soit un str
+    # il faut que chaque élément de la liste dico_menu["items"] soit un str
     if not is_items_str(dico_menu["items"]):
         return False
 
