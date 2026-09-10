@@ -14,7 +14,7 @@ def create_title(str_title):
     """
     Affiche un titre encadré par des lignes de caractères '='
     La largeur de l'encadrement est automatiquement adapté à
-    la longueur du tire  fourni
+    la longueur du titre fourni
     :param str_title: le titre à afficher
     :type str_title: str
     :return: None
