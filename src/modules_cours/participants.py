@@ -219,16 +219,7 @@ def search_participant():
 
     input("Retour au menu principal")
 
-'''
-print("Participants communs")
-        # mise en place d'un ensemble E4, qui contient l'intersection des ensembles
-        # (python ET web) ET java
-        E4 = (python.intersection(web)).intersection(java)
-        print("La liste des participants")
-        for participant in E4:
-            print(f"- {participant}")
-        input("Retour au menu principal")
-'''
+
 
 def common_participant_aux():
     """
@@ -239,7 +230,7 @@ def common_participant_aux():
     le module data.py
 
     Le traitement commence par récupérer l'ensemble des participants du premier groupe,
-    puis effectue successivement un intersection avec l'ensemble des groupes suivants.
+    puis effectue successivement une intersection avec l'ensemble des groupes suivants.
 
     Si aucun participant n'est commun la fonction retourne un ensemble vide.
 

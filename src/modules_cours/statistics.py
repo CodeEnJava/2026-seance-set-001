@@ -1,6 +1,6 @@
 
 from menu import create_title
-from modules_cours.data import groups, group_names
+from data import groups, group_names
 from participants import common_participant_aux
 
 

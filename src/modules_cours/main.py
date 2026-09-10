@@ -8,6 +8,7 @@ from participants import (add_participant,
                           common_participant)
 from services import create_group_dict
 from statistics import statistics
+from display_participants import display_participants
 
 group_dict = create_group_dict()
 
@@ -22,32 +23,8 @@ while True:
         while True:
             # le sous menu
             request_choose = show_menu(sub_menu)
-
-            if request_choose == 1:
-                print("Les participants du groupe Python")
-                for participant in python:
-                    print(f" - {participant}")
-
-                input("Retour sous menu ")
-
-            elif request_choose == 2:
-                print("Les participants du groupe Java")
-                for participant in java:
-                    print(f" - {participant}")
-                input("Retour sous menu ")
-
-            elif request_choose == 3:
-                print("Les participants du groupe Web")
-                for participant in web:
-                    print(f" - {participant}")
-                input("Retour sous menu ")
-
-            elif request_choose == 4:
-                print("Les participants de tous les groupes")
-                E_union = python.union(java).union(web)
-                for participant in E_union:
-                    print(f" - {participant}")
-                input("Retour sous menu ")
+            if 1<= request_choose < 5:
+                display_participants(request_choose)
 
             elif request_choose == 5:
                 # Afficher les participants en fonction d'une requête explicite

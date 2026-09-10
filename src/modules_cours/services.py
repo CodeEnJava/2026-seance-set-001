@@ -10,13 +10,13 @@ def create_group_dict():
        La fonction parcourt la collection globale `groupes` et construit
        un dictionnaire dont :
 
-       - la clé correspond au numéro du groupe sous forme de chaîne de caractères ;
-       - la valeur correspond au nom du groupe.
+       - La clé correspond au numéro du groupe sous forme de chaîne de caractères ;
+       - La valeur correspond au nom du groupe.
 
-       La numérotation des groupes commence à 1 afin de faciliter
+       La numérotation des groupes commence à '1' afin de faciliter
        leur affichage et leur sélection par l'utilisateur.
 
-       :return: un dictionnaire contenant les numéros et les noms des groupes
+       :return: Un dictionnaire contenant les numéros et les noms des groupes
        :rtype: dict
        '''
     dico_groupes ={}
@@ -37,7 +37,7 @@ def is_items_str(dico_groups):
        Ensuite, chaque valeur du dictionnaire est contrôlée afin de vérifier
        qu'elle est de type str.
 
-       :param dico_groups: dictionnaire contenant les éléments à vérifier
+       :param dico_groups: Dictionnaire contenant les éléments à vérifier
        :type dico_groups: dict
 
        :return: True si toutes les valeurs sont des chaînes de caractères,
