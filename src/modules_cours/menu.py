@@ -31,7 +31,7 @@ def create_items(list_items):
     le dernier élément de la liste aura pour indice 0, et va servir
     pour quitter l'application ou la sous application.
 
-    :param list_items: la liste des élemnts à afficher
+    :param list_items: la liste des élements à afficher
     :type list_items: list
     :return: None
     """
