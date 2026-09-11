@@ -1,15 +1,13 @@
-
-from data import python, java, web
 from data_menu import main_menu, sub_menu
+from display_participants import display_participants
 from menu import show_menu
 from participants import (add_participant,
                           remove_participant,
                           search_participant,
                           common_participant)
 from services import create_group_dict
-from statistics import statistics
-from display_participants import display_participants
 from set_query import query
+from statistics import statistics
 
 group_dict = create_group_dict()
 
