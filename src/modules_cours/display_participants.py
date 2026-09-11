@@ -66,8 +66,3 @@ def get_all_participants():
         participants = participants.union(group)
 
     return participants
-
-# test de la fonction
-# ne pas oublier de retirer cette partie avant de modifier le module main.py
-for index in range(0,6):
-    display_participants(index)
